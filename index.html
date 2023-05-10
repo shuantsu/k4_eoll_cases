@@ -22,60 +22,43 @@
 </style>
 
 <script>
-    const edgesCases =[[0, 0, 0, 0, 0, 0, 0, 0],
-[1, 1, 1, 1, 1, 1, 1, 1],
-[0, 0, 1, 1, 0, 0, 1, 1],
-[1, 0, 0, 1, 1, 0, 0, 1],
-[0, 0, 0, 0, 0, 1, 1, 0],
-[0, 0, 0, 0, 1, 1, 0, 0],
-[0, 0, 0, 1, 0, 0, 1, 0],
-[0, 0, 1, 1, 0, 1, 1, 0],
-[0, 0, 1, 1, 1, 0, 0, 1],
-[0, 1, 0, 0, 0, 0, 1, 0],
-[0, 1, 0, 0, 1, 0, 1, 1],
-[0, 1, 1, 0, 1, 1, 0, 0],
-[0, 1, 1, 1, 0, 0, 1, 0],
-[0, 1, 1, 1, 1, 0, 1, 1],
-[1, 0, 1, 0, 0, 1, 0, 1],
-[1, 1, 0, 0, 0, 0, 1, 1],
-[1, 1, 0, 0, 1, 1, 1, 1],
-[1, 1, 1, 0, 0, 0, 0, 1],
-[1, 1, 1, 1, 0, 1, 1, 0],
-[1, 1, 1, 1, 1, 0, 0, 1]];
+const edgesCases =[
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1],
+    [0, 0, 1, 1, 0, 0, 1, 1],
+    [1, 0, 0, 1, 1, 0, 0, 1],
+    [0, 0, 0, 0, 0, 1, 1, 0],
+    [0, 0, 0, 0, 1, 1, 0, 0],
+    [0, 0, 0, 1, 0, 0, 1, 0],
+    [0, 0, 1, 1, 0, 1, 1, 0],
+    [0, 0, 1, 1, 1, 0, 0, 1],
+    [0, 1, 0, 0, 0, 0, 1, 0],
+    [0, 1, 0, 0, 1, 0, 1, 1],
+    [0, 1, 1, 0, 1, 1, 0, 0],
+    [0, 1, 1, 1, 0, 0, 1, 0],
+    [0, 1, 1, 1, 1, 0, 1, 1],
+    [1, 0, 1, 0, 0, 1, 0, 1],
+    [1, 1, 0, 0, 0, 0, 1, 1],
+    [1, 1, 0, 0, 1, 1, 1, 1],
+    [1, 1, 1, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 0, 1, 1, 0],
+    [1, 1, 1, 1, 1, 0, 0, 1]
+];
 
-    for (let eoll of edgesCases) {
-        const [a,b,c,d,e,f,g,h] = eoll;
-        document.write(`
-            <div class="case"><table border>
-                <tr>
-                    <td class="oriented"></td>
-                    <td class="${a?'oriented':'flipped'}"></td>
-                    <td class="${b?'oriented':'flipped'}"></td>
-                    <td class="oriented"></td>
-                </tr>
+const td = x => `<td class="${x===null?'oriented':x?'oriented':'flipped'}"></td>`;
+const tr = x => `<tr>${x.map(td).join('')}</tr>`;
+const o = null;
 
-                <tr>
-                    <td class="${h?'oriented':'flipped'}"></td>
-                    <td class="oriented"></td>
-                    <td class="oriented"></td>
-                    <td class="${c?'oriented':'flipped'}"></td>
-                </tr>
-
-                <tr>
-                    <td class="${g?'oriented':'flipped'}"></td>
-                    <td class="oriented"></td>
-                    <td class="oriented"></td>
-                    <td class="${d?'oriented':'flipped'}"></td>
-                </tr>
-
-                <tr>
-                    <td class="oriented"></td>
-                    <td class="${f?'oriented':'flipped'}"></td>
-                    <td class="${e?'oriented':'flipped'}"></td>
-                    <td class="oriented"></td>
-                </tr>
-            </table></div>
-        `)
-    }
-
+for (let eoll of edgesCases) {
+    const [a, b, c, d, e, f, g, h] = eoll;
+    
+    document.write(`
+        <div class="case"><table>
+            ${tr([o, a, b, o])}
+            ${tr([h, o, o, c])}
+            ${tr([g, o, o, d])}
+            ${tr([o, f, e, o])}
+        </table></div>
+    `)
+}
 </script>
