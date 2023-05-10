@@ -1,0 +1,62 @@
+<style>
+    body {
+        width: 400px;
+    }
+    .case {
+        float: left;
+        margin: 5px;
+    }
+    table, tr, td {
+        border-collapse: collapse;
+    }
+    td {
+        padding: 10px;
+        border: 1px solid black;
+    }
+    .oriented {
+        background-color: yellow;
+    }
+    .flipped {
+        background-color: grey;
+    }
+</style>
+
+<script>
+    const edgesCases =[[0, 0, 1, 1, 1, 1, 1, 1], [1, 1, 0, 0, 1, 0, 0, 1], [1, 0, 1, 1, 1, 1, 0, 1], [1, 0, 1, 1, 0, 0, 0, 1], [0, 1, 1, 0, 0, 1, 1, 0], [0, 0, 0, 0, 1, 1, 0, 0], [0, 1, 1, 1, 1, 1, 1, 0], [0, 0, 1, 1, 1, 0, 0, 1], [1, 1, 1, 0, 1, 1, 0, 1], [0, 0, 1, 1, 1, 1, 0, 0], [0, 0, 0, 1, 1, 0, 0, 0], [1, 0, 0, 1, 0, 0, 0, 0], [0, 1, 0, 0, 1, 0, 1, 1], [0, 0, 0, 1, 0, 0, 1, 0], [1, 0, 0, 0, 1, 1, 0, 1], [0, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 1, 1, 1], [0, 1, 0, 1, 1, 0, 1, 0], [0, 0, 1, 1, 0, 0, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1]];
+
+    for (let eoll of edgesCases) {
+        const [a,b,c,d,e,f,g,h] = eoll;
+        document.write(`
+            <div class="case"><table border>
+                <tr>
+                    <td class="oriented"></td>
+                    <td class="${a?'oriented':'flipped'}"></td>
+                    <td class="${b?'oriented':'flipped'}"></td>
+                    <td class="oriented"></td>
+                </tr>
+
+                <tr>
+                    <td class="${h?'oriented':'flipped'}"></td>
+                    <td class="oriented"></td>
+                    <td class="oriented"></td>
+                    <td class="${c?'oriented':'flipped'}"></td>
+                </tr>
+
+                <tr>
+                    <td class="${g?'oriented':'flipped'}"></td>
+                    <td class="oriented"></td>
+                    <td class="oriented"></td>
+                    <td class="${d?'oriented':'flipped'}"></td>
+                </tr>
+
+                <tr>
+                    <td class="oriented"></td>
+                    <td class="${f?'oriented':'flipped'}"></td>
+                    <td class="${e?'oriented':'flipped'}"></td>
+                    <td class="oriented"></td>
+                </tr>
+            </table></div>
+        `)
+    }
+
+</script>
