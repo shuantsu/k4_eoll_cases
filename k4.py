@@ -2,7 +2,7 @@ import itertools
 
 combinations = list(itertools.product(range(2), repeat=8))
 
-legal_wings = lambda a : sum(a[1::2]) == sum(a[::2])
+legal_wings = lambda a: sum(a[1::2]) == sum(a[::2])
 
 result = list(filter(legal_wings, combinations))
 
